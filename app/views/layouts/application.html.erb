@@ -9,6 +9,35 @@
   </head>
 
   <body>
+    <!-- @user のerror catch -->
+    <% if @user && @user.errors.any? %>
+      <p>
+        <%= @user.errors.full_messages.size %>件のエラー
+      </p>
+      <ul>
+        <% @user.errors.full_messages.each do |err| %>
+          <li> <%= err %> </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <!-- @picture のerror catch -->
+    <% if @picture && @picture.errors.any? %>
+      <p>
+        <%= @picture.errors.full_messages.size %>件のエラー
+      </p>
+      <ul>
+        <% @picture.errors.full_messages.each do |err| %>
+          <li> <%= err %> </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    
+
+
+
+
     <%= yield %>
   </body>
 </html>

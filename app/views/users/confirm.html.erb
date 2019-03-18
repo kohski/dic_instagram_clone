@@ -1,0 +1,19 @@
+<%= form_with(model: @user,local:true,url: users_path ) do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= @user.name %>  
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= @user.email %>  
+  </div>
+  <div>
+    <%= f.label :image %>
+    <%= image_tag(@user.image.url) if @user.image && @user.image.url  %>  
+  </div>
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :email %>
+  <%= f.hidden_field :image_cache %>
+  <%= f.hidden_field :password_digest %>
+  <%= f.submit %>
+<% end %>

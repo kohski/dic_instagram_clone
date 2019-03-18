@@ -1,2 +1,13 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>User Detail</h1>
+<div>
+  <%= @user.name %>
+</div>
+<div>
+  <%= @user.email %>
+</div>
+<div>
+  <%= @user.image_cache %>
+</div>
+<div>
+  <%= link_to 'back to index', pictures_path %>
+</div>
