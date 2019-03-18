@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users,only:[:new,:create,:editm,:update,:show] do
+  resources :users,only:[:new,:create,:edit,:update,:show] do
     collection do
       post :confirm
     end
