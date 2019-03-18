@@ -11,11 +11,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       ContactMailer.contact_mail(@user).deliver
-      redirect_to user_path(id:@user.id), notice: "sign up"
+      redirect_to new_session_path, notice: "sign upしました。log inしてください。"
     else
       render 'new'
     end
-
   end
 
   def edit
