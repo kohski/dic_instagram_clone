@@ -1,0 +1,11 @@
+<h1>Picture detail</h1>
+<div class="panel panel-default">
+  <div class="panel-heading"><%= @picture.title%></div>
+  <div class="panel-body">
+    <div><%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %></div>
+    <div><%= @picture.comment %></div>  
+  </div>
+</div>
+<div class="panel-footer">
+  <%= link_to 'back to index', pictures_path %>
+</div>
