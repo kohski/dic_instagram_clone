@@ -3,4 +3,6 @@ class Picture < ApplicationRecord
 
   validates :title,presence: true,length:{ maximum:100 }
   validates :image,presence: true
+
+  belongs_to :user
 end
