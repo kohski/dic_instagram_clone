@@ -14,3 +14,109 @@
  *= require_tree .
  *= require_self
  */
+/* body{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+} */
+
+/* application 共通部分 */
+header{
+  background-color: #ffffff;
+  height:70px;
+  text-align:center;
+  border-bottom:3px solid #999999 ;
+}
+.topmenu{
+  display:inline-flex;
+}
+
+.header_menu{
+  margin-top:20px;
+}
+
+.user_info{
+   float:right;
+}
+.post_info{
+  float:left;
+}
+body{
+  background-color: #f3f3f3;
+}
+
+.page_top{
+  text-align: center;
+  font-size:30px;
+}
+
+.row{
+  margin-bottom:30px;
+}
+
+.notice{
+  padding:20px;
+  text-align:center;
+}
+.clearfix::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* picture 関連 */
+.panel.panel-default.col-xs-10{
+  padding-right:0;
+  padding-left:0;
+}
+.panel-heading{
+  font-size:24px;
+  text-align:center;
+}
+
+.panel-body{
+  text-align:center;
+  padding-right:0;
+  padding-left:0;
+}
+.post_by{
+  text-align:left;
+}
+.post_comment{
+  border:#dddddd 1px solid;
+  padding:20px;
+}
+
+.submit-row{
+  width:100%;
+  text-align:center;
+}
+
+/* user page */
+.show_dl>.row{
+  margin:0;
+}
+
+dt{
+  float:left;
+  padding:10px 0;
+  border:1px solid #dddddd;
+}
+
+dd{
+  border:1px solid #dddddd;
+  border-left:none;
+  padding:10px 0;
+}
+
+.btn_row{
+  text-align:center;
+}
+
+.image_row{
+  text-align:center;
+  margin-bottom:100px;
+}
+.image_row> img{
+  margin-top:30px;
+  margin-bottom:30px;
+}
+

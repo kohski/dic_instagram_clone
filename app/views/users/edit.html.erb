@@ -1,24 +1,31 @@
+<h1 class="page_top">Edit your info</h1>
 <%= form_with(model: @user,local: true) do |f|%>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="container-fluid">
+    <div class="row">
+      <%= f.label :name,class:"col-xs-offset-2 col-xs-2" %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="row">
+      <%= f.label :email,class:"col-xs-offset-2 col-xs-2" %>
+      <%= f.text_field :email %>
+    </div>
+    <div class="row">
+      <%= f.label :image,class:"col-xs-offset-2 col-xs-2" %>
+      <%= image_tag(@user.image.url) %>
+      <%= f.file_field :image,class:"col-xs-offset-4 col-xs-2" %>
+    </div>
+    <div class="row">
+      <%= f.label :password,class:"col-xs-offset-2 col-xs-2" %>
+      <%= f.password_field :password %>
+    </div>
+    <div class="row">
+      <%= f.label :password_confirmation,class:"col-xs-offset-2 col-xs-2" %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+    <div class="row">
+    <div class="row submit-row">
+      <%= f.submit "編集",class:"btn btn-default" %>        
+    </div>
+    </div>
   </div>
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-  <div>
-    <%= f.label :image %>
-    <%= image_tag(@user.image.url) %>
-    <%= f.file_field :image %>
-  </div>
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <%= f.submit %>
 <% end %>

@@ -1,18 +1,21 @@
-<h1>Pictures</h1>
+<h1 class="page_top">pictures</h1>
 
-<% @pictures.each do |picture| %>
-<div class="panel panel-default">
-  <div class="panel-heading"><%= picture.title%></div>
-  <div class="panel-body">
-    <div><%= image_tag(picture.image.url) if picture.image && picture.image.url %></div>
-    <div><%= picture.comment %></div>  
+<div class="container-fluid">
+  <% @pictures.each do |picture| %>
+  <div class="panel panel-default col-xs-offset-1 col-xs-10">
+    <div class="panel-heading"><%= picture.title%></div>
+    <div class="panel-body">
+      <div><%= image_tag(picture.image.url) if picture.image && picture.image.url %></div>
+      <div class="post_comment"><%= picture.comment %></div>  
+      <div class="post_by">posted by : <%= picture.user.name %></div>
+    </div>
+    <div class="panel-footer">
+      <%= link_to 'show', picture_path(picture.id),class: "btn btn-default" %>
+      <% if current_user && picture.user_id == current_user.id %>
+        <%= link_to 'edit', edit_picture_path(picture.id),class: "btn btn-default" %>  
+      <% end %>
+      <%= link_to 'delete', picture_path(picture.id),method: :delete,class: "btn btn-default" %>
+    </div>
   </div>
+  <% end %>
 </div>
-<div class="panel-footer">
-  <%= link_to 'show', picture_path(picture.id),class: "btn btn-default" %>
-  <%= link_to 'edit', edit_picture_path(picture.id),class: "btn btn-default" %>
-  <%= link_to 'delete', picture_path(picture.id),method: :delete,class: "btn btn-default" %>
-</div>
-<% end %>
-
-<%= link_to "new post",new_picture_path %>

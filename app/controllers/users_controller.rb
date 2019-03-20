@@ -18,7 +18,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    if params[:id] == current_user.id.to_s
+      @user = User.find(params[:id])
+    else
+      redirect_to pictures_path,notice:"他ユーザーの編集はできません"
+    end
   end
 
   def update
@@ -28,11 +32,14 @@ class UsersController < ApplicationController
     else
       render "edit"
     end
-
   end
 
   def show
-    @user = User.find(params[:id])
+    if params[:id] == current_user.id.to_s
+      @user = User.find(params[:id])
+    else
+      redirect_to pictures_path,notice:"他ユーザーの情報は閲覧できません。"
+    end
   end
 
   private
@@ -40,7 +47,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name,:email,:image,:image_cache,:password,:password_confirmation)
   end
-
-
   
 end

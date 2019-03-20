@@ -1,13 +1,38 @@
-<h1>User Detail</h1>
-<div>
-  <%= @user.name %>
+<h1 class="page_top">User Detail</h1>
+<!--<div class="row">
+  <div class="col-xs-offset-2 col-xs-2">name : </div>
+  <div class="col-xs-6"><%= @user.name %></div>
 </div>
-<div>
+<div class="row">
   <%= @user.email %>
 </div>
-<div>
-  <%= @user.image_cache %>
+<div class="row">
+  <%= image_tag(current_user.image.url) %>
+</div class="row">
+<div class="edit_btn_row row">
+  <%= link_to 'edit', edit_user_path(current_user.id),class:"btn btn-default" %>
 </div>
 <div>
-  <%= link_to 'back to index', pictures_path %>
-</div>
+  <%= link_to 'back to index', pictures_path,class:"btn btn-default" %>
+</div> -->
+
+<dl class="show_dl">
+  <div class="row image_row">
+    <%= image_tag(current_user.image.url) %>
+  </div>
+  <div class="row">
+    <dt class="col-xs-offset-2 col-xs-2">name</dt>
+    <dd class="col-xs-6"><%= @user.name %></dd>
+  </div>
+  <div class="row">
+    <dt class="col-xs-offset-2 col-xs-2">email</dt>
+    <dd class="col-xs-6"><%= @user.email %></dd>
+  </div>
+  <div class="row btn_row">
+    <div>
+      <%= link_to 'edit', edit_user_path(current_user.id),class:"btn btn-default" %>
+      <%= link_to 'back to index', pictures_path,class:"btn btn-default" %>
+    </div>
+  </div>
+  
+</dl>

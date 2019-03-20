@@ -1,29 +1,29 @@
 <%= form_with(model: @user,local:true) do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email %>  
-  </div>
-  <div>
-    <%= f.label :image %>
-    <%= f.hidden_field :image_cache %>
-    <%= f.file_field :image %>    
-  </div>
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :pasword_confirmation %>  
-  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <%= f.label :name,class: "col-xs-offset-2 col-xs-2" %>
+      <%= f.text_field :name,class: "col-xs-5" %>
+    </div>
+    <div class="row">
+      <%= f.label :email,class: "col-xs-offset-2 col-xs-2" %>
+      <%= f.text_field :email,class: "col-xs-5" %>  
+    </div>
+    <div class="row">
+      <%= f.label :image,class: "col-xs-offset-2 col-xs-2" %>
+      <%= f.hidden_field :image_cache %>
+      <%= f.file_field :image,class: "col-xs-5" %>    
+    </div>
+    <div class="row">
+      <%= f.label :password,class: "col-xs-offset-2 col-xs-2" %>
+      <%= f.password_field :password,class: "col-xs-5" %>
+    </div>
+    <div class="row">
+      <%= f.label :password_confirmation,class: "col-xs-offset-2 col-xs-2" %>
+      <%= f.password_field :pasword_confirmation,class: "col-xs-5" %>  
+    </div>
 
-  <div>
-    <%= f.submit %>
+    <div class="row submit-row">
+      <%= f.submit "登録する",class:"btn btn-default" %>
+    </div>
   </div>
-
-
 <% end %>

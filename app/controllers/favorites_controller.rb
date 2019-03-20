@@ -1,7 +1,11 @@
 class FavoritesController < ApplicationController
 
   def index
-    @favorites = Favorite.where(user_id: current_user.id)
+    if logged_in?
+      @favorites = Favorite.where(user_id: current_user.id)
+    else
+      redirect_to new_session_path,notice:"ログインしてください"
+    end
   end
 
   def create

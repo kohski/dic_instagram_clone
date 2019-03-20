@@ -10,44 +10,67 @@
 
   <body>
     <header>
-      <% if logged_in? %>
-        <%= link_to "Profile",user_path(current_user.id) %>
-        <%= link_to "Log out",session_path(current_user.id), method: :delete %>
+      <div class="post_info">
+        <%= link_to "index",pictures_path,class: "btn btn-default header_menu" %>
+        <%= link_to 'new', new_picture_path,class: "btn btn-default header_menu" %>
+        <%= link_to 'fav', favorites_path,class: "btn btn-default header_menu" %>
+      </div>
+      
+      <h1 class="topmenu">Instagram Clone</h1>
+      <!-- <% if logged_in? %>
+        <%= current_user.name %>としてログインしています。
       <% else %>
-        <%= link_to "Sign up",new_user_path %>
-        <%= link_to "Log in",new_session_path %>
-      <% end %>
+        visitor
+      <% end%>  -->
+      <div class="user_info">
+        <% if logged_in? %>
+          <%= link_to "Profile",user_path(current_user.id),class: "btn btn-default header_menu" %>
+          <%= link_to "Log out",session_path(current_user.id), method: :delete,class: "btn btn-default header_menu" %>
+        <% else %>
+          <%= link_to "Sign up",new_user_path,class: "btn btn-default header_menu" %>
+          <%= link_to "Log in",new_session_path,class: "btn btn-default header_menu" %>
+        <% end %>
+      </div>
     </header>
 
-    <!-- @user のerror catch -->
-    <% if @user && @user.errors.any? %>
-      <p>
-        <%= @user.errors.full_messages.size %>件のエラー
-      </p>
-      <ul>
-        <% @user.errors.full_messages.each do |err| %>
-          <li> <%= err %> </li>
-        <% end %>
-      </ul>
-    <% end %>
 
-    <!-- @picture のerror catch -->
-    <% if @picture && @picture.errors.any? %>
-      <p>
-        <%= @picture.errors.full_messages.size %>件のエラー
-      </p>
-      <ul>
-        <% @picture.errors.full_messages.each do |err| %>
-          <li> <%= err %> </li>
-        <% end %>
-      </ul>
-    <% end %>
+
+      <!-- @user のerror catch -->
+      <% if @user && @user.errors.any? %>
+        <div class="alert alert-danger">
+          <p>
+            <%= @user.errors.full_messages.size %>件のエラー
+          </p>
+          <ul>
+            <% @user.errors.full_messages.each do |err| %>
+              <li> <%= err %> </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <!-- @picture のerror catch -->
+      <% if @picture && @picture.errors.any? %>
+        <div class="alert alert-danger">
+          <p>
+            <%= @picture.errors.full_messages.size %>件のエラー
+          </p>
+          <ul>
+            <% @picture.errors.full_messages.each do |err| %>
+              <li> <%= err %> </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
     <!-- noticeを書く -->
-    <div>
-      <%= notice %>
-    </div>
-
+    <% if notice != nil %>
+      <div class="container-fulid clearfix">
+        <div class=" col-xs-offset-1 col-xs-10 notice alert alert-info">
+          <%= notice %>
+        </div>    
+      </div>
+    <%  end %>
 
 
 
