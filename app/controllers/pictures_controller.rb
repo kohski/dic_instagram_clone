@@ -1,4 +1,6 @@
 class PicturesController < ApplicationController
+  before_action :set_picture, only:[:show,:edit,:update,:destroy]
+
   def new
     unless logged_in?
       redirect_to new_session_path,notice:"Log inしてください。"
@@ -26,7 +28,6 @@ class PicturesController < ApplicationController
   end
 
   def show
-    @picture = Picture.find(params[:id])
     @favorite = current_user.favorites.find_by(picture_id: @picture.id)
   end
 
@@ -35,11 +36,9 @@ class PicturesController < ApplicationController
   end
 
   def edit
-    @picture = Picture.find(params[:id])
   end
 
   def update
-    @picture = Picture.find(params[:id])
     if @picture.update(picture_params)
       redirect_to pictures_path,notice:"your post was successfully editted"
     else
@@ -48,7 +47,6 @@ class PicturesController < ApplicationController
   end
 
   def destroy
-    @picture = Picture.find(params[:id])
     @picture.destroy
     redirect_to pictures_path,notice: "your post is successsfully deleted"
   end
@@ -57,6 +55,10 @@ class PicturesController < ApplicationController
 
   def picture_params
     params.require(:picture).permit(:title,:comment,:image,:image_cache,:user_id)
+  end
+
+  def set_picture
+    @picture = Picture.find(params[:id])
   end
 
 end
