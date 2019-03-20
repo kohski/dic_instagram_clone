@@ -1,5 +1,8 @@
 class PicturesController < ApplicationController
   def new
+    unless logged_in?
+      redirect_to new_session_path,notice:"Log inしてください。"
+    end
     @picture = Picture.new
   end
 
