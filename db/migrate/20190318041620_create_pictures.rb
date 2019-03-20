@@ -5,8 +5,6 @@ class CreatePictures < ActiveRecord::Migration[5.1]
       t.text :comment
       t.text :image
 
-      mount_uploader :image,ImageUploader
-
       t.timestamps
     end
   end
