@@ -3,7 +3,12 @@ class PicturesController < ApplicationController
     unless logged_in?
       redirect_to new_session_path,notice:"Log inしてください。"
     end
-    @picture = Picture.new
+
+    if params[:back]
+      @picture = Picture.new(picture_params)
+    else
+      @picture = Picture.new
+    end
   end
 
   def confirm
