@@ -7,15 +7,18 @@
     <div class="row">
       <%= f.label :image,class: "col-xs-offset-2 col-xs-2"  %>
       <%= image_tag(@picture.image.url,class: "col-xs-6"  ) if @picture.image && @picture.image.url%>
-      <%= f.file_field :image,id: :picture_image,class: "col-xs-6"  %>
-      <%= f.hidden_field :image_cache %>
     </div>
     <div class="row">
-      <%= f.label :comment,class: "col-xs-offset-2 col-xs-2"   %>
+      <%= f.file_field :image,id: :picture_image,class: "col-xs-offset-4" %>
+    </div>
+      <%= f.hidden_field :image_cache %>
+    
+    <div class="row">
+      <%= f.label :comment,class: "col-xs-offset-2 col-xs-2" %>
       <%= f.text_area :comment,class: "col-xs-6"   %>
     </div>
     <div class="row submit-row">
-      <%= f.submit "new post",class: "btn btn-default submit-btn" %>
+      <%= f.submit "post",class: "btn btn-default submit-btn" %>
     </div>
   </div>
 <% end %>
