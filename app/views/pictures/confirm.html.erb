@@ -1,17 +1,26 @@
 <h1 class="page_top">Confirm Post picture</h1>
 <%= form_with(model: @picture,local: true,url:pictures_path) do |f| %>
-  <div>
-    <%= @picture.title %>
+  <div class="contailner-fluid">
+    <dl class="show_dl">
+        <div class="row pic_conf">
+        <dt class="col-xs-offset-2 col-xs-2">タイトル</dt>
+        <dd class="col-xs-6"><%= @picture.title %></dd>
+      </div>
+      <div class="row pic_conf">
+        <dt class="col-xs-offset-2 col-xs-2">コメント</dt>
+        <dd class="col-xs-6"><%= @picture.comment %></dd>
+      </div>
+    </dl>
+    <div class="row image_row">
+      <%= image_tag(@picture.image.url,class:"col-xs-offset-2" ) if @picture.image && @picture.image.url %>
+    </div>
+    <%= f.hidden_field :title %>
+    <%= f.hidden_field :image_cache %>
+    <%= f.hidden_field :comment %>
+    <div class="row submit-row">
+      <%= f.submit "投稿" ,class:"btn btn-default" %>      
+    </div>
+
   </div>
-  <div>
-    <%= image_tag(@picture.image.url ) if @picture.image && @picture.image.url %>
-  </div>
-  <div>
-    <%= @picture.comment %>
-  </div>
-  <%= f.hidden_field :title %>
-  <%= f.hidden_field :image_cache %>
-  <%= f.hidden_field :comment %>
-  <%= f.submit %>
 <% end %>
 

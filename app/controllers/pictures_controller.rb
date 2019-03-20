@@ -48,13 +48,10 @@ class PicturesController < ApplicationController
     redirect_to pictures_path,notice: "your post is successsfully deleted"
   end
 
+  private
 
   def picture_params
     params.require(:picture).permit(:title,:comment,:image,:image_cache,:user_id)
   end
-
-  # def set_picture
-  #   Picture.new(params[:id])
-  # end
 
 end

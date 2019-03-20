@@ -90,6 +90,10 @@ body{
   text-align:center;
 }
 
+.pic_conf.row{
+  margin-bottom:0;
+}
+
 /* user page */
 .show_dl>.row{
   margin:0;
