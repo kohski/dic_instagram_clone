@@ -24,6 +24,7 @@
       <% end%>  -->
       <div class="user_info">
         <% if logged_in? %>
+          <%= link_to 'User Index',users_path,class: "btn btn-default header_menu" %>
           <%= link_to "Profile",user_path(current_user.id),class: "btn btn-default header_menu" %>
           <%= link_to "Log out",session_path(current_user.id), method: :delete,class: "btn btn-default header_menu" %>
         <% else %>

@@ -15,10 +15,32 @@
     <dt class="col-xs-offset-2 col-xs-2">email</dt>
     <dd class="col-xs-6"><%= @user.email %></dd>
   </div>
+  <div class="row">
+    <p>フォローしている</p>
+    <ul>
+      <% @user.followers.each do |user| %>
+        <li>
+          <%= user.name %>
+          <%= user.email %>      
+        </li>
+      <% end %>    
+    </ul>
+  </div>
+  <div class="row">
+    <p>フォローされている</p>
+      <ul>
+        <% @user.following.each do |user| %>
+          <li>
+            <%= user.name %>
+            <%= user.email %>      
+          </li>
+        <% end %>      
+      </ul>
+  </div>
   <div class="row btn_row">
     <div>
       <%= link_to 'edit', edit_user_path(current_user.id),class:"btn btn-default" %>
-      <%= link_to 'back to index', pictures_path,class:"btn btn-default" %>
+      <%= link_to 'back to index', users_path,class:"btn btn-default" %>
     </div>
   </div>
   
