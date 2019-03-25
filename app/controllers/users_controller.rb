@@ -34,9 +34,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    unless params[:id] == current_user.id.to_s
-      redirect_to pictures_path,notice:"他ユーザーの情報は閲覧できません。"
-    end
+    # unless params[:id] == current_user.id.to_s
+    #   redirect_to pictures_path,notice:"他ユーザーの情報は閲覧できません。"
+    # end
+    @user = User.find(params[:id])
+  end
+
+  def index
+    @users = User.all
   end
 
   private
