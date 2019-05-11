@@ -19,6 +19,8 @@ gem 'mini_magick'
 gem 'carrierwave'
 gem 'bcrypt', '3.1.11'
 gem 'faker'
+gem 'fog-aws'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -37,6 +39,7 @@ group :development, :test do
   gem "database_cleaner"
   gem "launchy"
   gem 'selenium-webdriver'
+
 end
 
 group :development do
