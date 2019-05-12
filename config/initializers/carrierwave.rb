@@ -18,7 +18,7 @@ CarrierWave.configure do |config|
 
   case Rails.env
     when 'production'
-      config.fog_directory = 'instagram-clone-puroduction-dic'
+      config.fog_directory = 'instagram-clone-production-dic'
       config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/instagram-clone-production-dic'
     when 'development'
       config.fog_directory = 'instagram-clone-develop-dic'
