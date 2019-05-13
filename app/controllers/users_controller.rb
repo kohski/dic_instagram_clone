@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      ContactMailer.contact_mail(@user).deliver
+      # ContactMailer.contact_mail(@user).deliver
       redirect_to new_session_path, notice: "sign upしました。log inしてください。"
     else
       render 'new'
@@ -34,9 +34,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    # unless params[:id] == current_user.id.to_s
-    #   redirect_to pictures_path,notice:"他ユーザーの情報は閲覧できません。"
-    # end
     @user = User.find(params[:id])
   end
 
